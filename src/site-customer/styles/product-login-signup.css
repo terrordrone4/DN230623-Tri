@@ -1,0 +1,58 @@
+.top-bar .login-or-register {
+    float: right;
+}.top-bar .account-hamburger {
+    margin: 0 20px 0 20px;
+    height: 58px;
+    float: right;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+}.top-bar .ham-register {
+    margin-left: 0px;
+}.top-bar .account-hamburger .username {
+    float: left;
+    margin: 15px 0 0 10px;
+    font-weight: bolder;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 2px black;
+    padding: 2px 0;
+    border-radius: 2px;
+    border-top: 3px solid rgba(255,255,255,0.2);
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+    -webkit-transition: border 500ms ease, color 500ms ease;
+    -moz-transition: border 500ms ease, color 500ms ease;
+    transition: border 500ms ease, color 500ms ease;
+}.inbetween-ham {
+    margin: 20px 0 0 0;
+    color: #525761;
+    float: right;
+}.top-bar .account-hamburger {
+    margin: 0 20px 0 20px;
+    height: 58px;
+    float: right;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+}.top-bar .ham-login {
+    margin-right: 10px;
+    color: #333;
+}.top-bar .account-hamburger .username {
+    float: left;
+    margin: 15px 0 0 10px;
+    font-weight: bolder;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 2px black;
+    padding: 2px 0;
+    border-radius: 2px;
+    border-top: 3px solid rgba(255,255,255,0.2);
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+    -webkit-transition: border 500ms ease, color 500ms ease;
+    -moz-transition: border 500ms ease, color 500ms ease;
+    transition: border 500ms ease, color 500ms ease;
+}.top-bar .ham-login .username {
+    border: none;
+    margin-top: 18px;
+    color: #fff;
+}

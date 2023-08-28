@@ -1,0 +1,87 @@
+<div class="login login-register">
+    <div class="login-register-button" id="hook-show-login"> <!-- @click="showLoginModal">-->
+        Login
+    </div>
+    <div class="login-dropdown">
+        <div hidden id="login-container" v-show="isLoginModalVisible" @close="hideLoginModal">
+            <div id="login-root">
+                <div class="notifier" id="notifier" v-show="isNotifierEnabled"></div>
+
+                <div class="login-header">
+                </div>
+                <div class="login-main">
+                    <div class="dropdown">
+                        <div class="triangle"></div>
+
+                        <form v-on:submit.prevent>
+                            <div class="alert alert-error m10" id="alert-login-failed" style="display: none;">
+                                <strong>Wrong username or password!</strong>
+                                Please try again.
+                            </div>
+                            <div class="input-group">
+                                <label>Email</label>
+                                <br>
+                                <input class="login-input text" type="text" id="input-login-email"
+                                    autocomplete="current-password">
+
+                                <br>
+
+                                <label>Password</label>
+                                <br>
+                                <input class="login-input text" type="password" id="input-login-password"
+                                    autocomplete="current-password" v-model="input_login_password">
+                                <br>
+                            </div>
+                            <div class="button-group">
+                                <div class="login-remember-me">
+                                    <button type="button" id="hook-submit-login" class="login-input submit-button"
+                                        v-on:click="submitLogin()">
+                                        Login
+                                    </button>
+
+                                    <div class="remember">
+                                        <input class="login-input remember-me-checkbox" type="checkbox" checked>
+                                        <label>Remember me</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="other-login">
+                                    <p>or login with</p>
+                                    <div class="other-login-button-group">
+                                        <div class="google-button">
+                                            <div class="google-icon-wrapper">
+                                                <img class="google-icon"
+                                                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                                            </div>
+                                            <p class="btn-text"><b>Google</b></p>
+                                        </div>
+                                        <div class="facebook-button">
+                                            <div class="facebook-icon-wrapper">
+                                                <img class="facebook-icon"
+                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/F_icon_reversed.svg/1024px-F_icon_reversed.svg.png" />
+                                            </div>
+                                            <p class="btn-text"><b>Facebook</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </form>
+
+
+                        <p class="forgot">
+                            <a href="reset-password.html">Forgot password ?</a>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="login-footer">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

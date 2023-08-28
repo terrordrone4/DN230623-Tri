@@ -1,0 +1,180 @@
+.absolute {
+    position: absolute;
+}
+
+.outside_message_cont {
+    top: 0px;
+    padding: 0;
+    margin: 52px 0 0 -185px;
+    cursor: default;
+}
+
+.outside_message_cont>.relative {
+    width: 350px;
+    min-height: 50px;
+    background: #fff;
+    border-radius: 3px;
+    z-index: 3;
+    box-shadow: 0 0px 0px #484848, 0 2px 10px rgba(0, 0, 0, 0.4);
+    -moz-transition: box-shadow 300ms ease;
+    -o-transition: box-shadow 300ms ease;
+    -webkit-transition: box-shadow 300ms ease;
+    transition: box-shadow 300ms ease;
+}
+
+.outside_message_cont .top {
+    height: 1px;
+}
+
+.ss-basket .sb-products-wrapper {
+    max-height: 240px;
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+.sb-product-dropdown {
+    padding: 15px 7px 15px 15px;
+    border-bottom: 1px solid #efefef;
+    color: #272d39;
+    -moz-transition: all 1.5s;
+    -o-transition: all 1.5s;
+    -webkit-transition: all 1.5s;
+    transition: all 1.5s;
+}
+
+.ss-basket .sb-products-wrapper * {
+    box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.sb-product-dropdown>a {
+    float: left;
+    background: #f5f5f5;
+    min-height: 50px;
+    width: 75px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.sb-product-dropdown>div {
+    float: left;
+}
+
+.outside_message_cont a {
+    color: #383838;
+}
+
+.ss-basket .sb-products-wrapper * {
+    box-sizing: border-box;
+}
+
+.sb-product-dropdown .det {
+    padding-left: 15px;
+    width: 200px;
+}
+
+.sb-product-dropdown .det .title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #181818;
+    padding-top: 5px;
+}
+
+.sb-product-dropdown .det .title .light {
+    font-weight: 300;
+}
+
+.sb-product-dropdown .det .auth {
+    font-size: 12px;
+    color: #7d7d7d;
+    padding-top: 2px;
+}
+
+.sb-product-dropdown .det .auth a {
+    font-size: 12px;
+    color: #7d7d7d;
+}
+
+.sb-product-dropdown .det .price {
+    font-weight: bold;
+    padding-top: 3px;
+}
+
+.sb-product-dropdown .ss-trash {
+    float: left;
+    background-color: #fcfcfc00;
+    color: #b3d4fc;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px 0 10px;    
+}
+
+.ss-trash:before,
+.ss-trash.right:after {
+    content: '';
+    background-image: url("../../site-customer/asset/image/icon/icon-trash-can-64.png");
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-size: cover;
+    resize: both;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 6px;
+}
+
+
+.sb-bottom-dd>div {
+    float: left;
+    line-height: 68px;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.sb-bottom-dd>a {
+    display: block;
+    float: right;
+    padding: 10px 15px;
+    margin: 15px;
+}
+
+.sb-bottom-dd .btn-stock .ss-cart {
+    position: relative;
+    top: 2px;
+    right: 1px;
+}
+
+.btn-stock.filled {
+    background: #458dcc;
+    color: white;
+}
+
+.sb-bottom-dd .btn-stock .ss-cart {
+    position: relative;
+    top: 2px;
+    right: 1px;
+}
+
+.product-action-bar .action-buttons-container .btn-add-to-cart {
+    background: #458dcc;
+    animation-duration: 10s;
+    animation-name: clickbtn;
+    animation-iteration-count: infinite;
+}
+
+.product-action-bar .action-buttons-container .btn-add-to-cart:hover {
+    background: #86afe0;
+}
+
+
+.product-action-bar .action-buttons-container .btn-disabled {
+    background: #9c9fa1;
+}

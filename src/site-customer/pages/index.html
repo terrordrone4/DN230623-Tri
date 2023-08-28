@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="site-customer\styles\homepage.css" />    
+    <link rel="stylesheet" type="text/css" href="site-customer\styles\header.css" />    
+    <link rel="stylesheet" type="text/css" href="site-customer\styles\main.css" />    
+    <link rel="stylesheet" type="text/css" href="site-customer\styles\footer.css" />  
+    <link rel="stylesheet" type="text/css" href="site-customer\styles\login.css" /> 
+    <link rel="stylesheet" type="text/css" href="site-customer\styles\signup.css" />
+
+    <script src="site-customer\pages\index.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div include-html="site-customer\components\organisms\header\index.html"></div>
+        <div include-html="site-customer\components\organisms\main\index.html"></div>
+        <div include-html="site-customer\components\organisms\footer\index.html"></div>
+    </div>
+</body>
+
+<script>
+    includeHTML();
+    
+    console.log("includeHTML() completed");
+</script>
+
+<script src="https://blueimp.github.io/JavaScript-MD5/js/md5.js"></script>
+
+<script src="../../site-customer/js/constants.js"></script>
+<script src="../../site-customer/js/utils.js"></script>
+<script src="../../site-customer/js/FakeData.js"></script>
+<script src="../../site-customer/js/setup.js"></script>
+<script src="../../site-customer/js/userauth.js"></script>
+<script src="../../site-customer/js/homepage.js"></script>
+<script src="../../site-customer/js/login.js"></script>
+<script src="../../site-customer/js/signup.js"></script>
+</html>

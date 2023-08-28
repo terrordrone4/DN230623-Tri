@@ -1,0 +1,197 @@
+label {
+  cursor: default;
+}
+
+
+.dim {
+  width: 100%;
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  z-index: 1020 !important;
+  background: -moz-radial-gradient(center, ellipse cover, rgba(109, 109, 109, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(109, 109, 109, 0.9)), color-stop(100%, rgba(0, 0, 0, 0.9)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(109, 109, 109, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(109, 109, 109, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(109, 109, 109, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+  background: radial-gradient(ellipse at center, rgba(109, 109, 109, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e66d6d6d', endColorstr='#e6000000', GradientType=1);
+  display: none;
+  background: #2a303a;
+  background: rgba(42, 48, 58, 0.8);
+
+  display: block;
+  height: auto;
+  top: 0px;
+  bottom: 0px;
+  overflow-y: auto;
+}
+
+.signup-container {
+
+  width: 430px;
+  left: 50%;
+  position: relative;
+  width: 350px;
+  margin-left: -175px;
+  padding: 60px 0;
+}
+
+.signup-promo {
+
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+.signup-promo .title {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin-bottom: 15px;
+}
+
+.signup-promo .subtitle {
+  font-size: 14px;
+}
+
+.signup-form {
+  background: #eff1f5;
+  border-radius: 5px;
+  padding: 30px;
+  margin: 25px 0 0 0;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2);
+}
+
+.signup-form .x-delete {
+  position: absolute;
+  color: #fff;
+  font-size: 26px;
+  margin: -61px -14px 0 0;
+  right: 0px;
+  cursor: pointer;
+}
+
+.x-delete::before {
+  content: '';
+  background-image: url("../../site-customer/asset/image/icon/icon-cross-x.png");
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: -16px;
+  top: -6px;
+  background-size: cover;
+  resize: both;
+}
+
+.signup-form label {
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"] {
+  font-size: 14px;
+  padding: 10px;
+  width: 265px;
+  margin: 8px 0 5px 0;
+  border: 1px solid #e5e5e5;
+}
+
+.signup-form p.agree label {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.signup-form button {
+  font-size: 14px;
+  padding: 10px 106px;
+  margin-top: 15px;
+  background: #feca5c;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fed96f), to(#febb49));
+  background: -moz-linear-gradient(top, #fed96f, #febb49);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fed96f', endColorstr='#febb49');
+  border-top: 1px solid #f5b74e;
+  border-bottom: 1px solid #d6982f;
+  border-right: 1px solid #e8ab45;
+  border-left: 1px solid #e8ab45;
+  color: #623f1d;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.social-login-options .social-login-label {
+  display: block;
+  margin: 30px auto 10px;
+  text-align: center;
+  max-width: 250px;
+  color:black;
+}
+
+.social-login-options .social-buttons-container {
+  text-align: center;
+}
+
+.social-login-options .social-buttons-container .login-page-btn {
+  display: inline-block;
+  padding: 8px 10px 8px 10px;
+  color: #fff;
+  margin: 5px;
+  border-radius: 0.125rem;
+  position: relative;
+  border: 1px solid transparent;
+  background: #458dcc;
+}
+
+.social-login-options .social-buttons-container .social-login-btn {
+  display: inline-block;
+  padding: 8px 10px 8px 35px;
+  color: #fff;
+  margin: 5px;
+  border-radius: 0.125rem;
+  position: relative;
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.social-login-options .social-buttons-container .social-login-btn.google {
+  background: #4285f4;
+}
+
+.social-login-options .social-buttons-container .social-login-btn.facebook {
+  background: #4267b2;
+}
+
+.social-login-options .social-buttons-container .social-login-btn.google::before {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/588px-Google_%22G%22_Logo.svg.png?20230305195327");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+}
+
+.social-login-options .social-buttons-container .social-login-btn.facebook::before {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/F_icon_reversed.svg/1024px-F_icon_reversed.svg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.social-login-options .social-buttons-container .social-login-btn::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  color: #fff;
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  background-size: cover;
+  resize: both;
+}
+
+html, button, input, select, textarea {
+  color: #222;
+}

@@ -1,0 +1,122 @@
+.footer {
+  background: #0F161B;
+  background: #555b68;
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.footer .content-wrapper {
+  max-width: 1200px;
+  min-height: 380px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.footer-top {}
+
+.footer-top .slice {
+  width: 25%;
+  float: left;
+}
+
+.footer-top .awesome-logo {
+  margin: 20px 0px 0 0px;
+  color: #fff;
+  font-family: "Rubik", "Lucida Grande", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.footer-top p {
+  font-family: "Open Sans";
+}
+
+.change-region {
+  cursor: pointer;
+}
+
+.footer .change-region .dropup {
+
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 0 #484848, 0 2px 10px rgba(0, 0, 0, .2);
+  margin: -110px 0 0 0;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  cursor: default;
+  width: 245px;
+  display: block;
+  position: relative;
+  margin: 0px;
+  background: #535b69;
+  box-shadow: none;
+}
+
+.footer .change-region .dropup a {
+
+  text-align: center;
+  width: 71px;
+  display: block;
+  float: left;
+  padding: 5px 0;
+  color: #fff;
+}
+
+.footer .change-region .dropup span {
+  text-align: center;
+  width: 71px;
+  display: block;
+  float: left;
+  padding: 5px 0;
+  color: #9aa6bc;
+}
+
+.footer-top .middle-links {
+  margin: 0 auto;
+  width: 70%;
+  text-align: center;
+  padding-left: 40px;
+}
+
+.footer-top .middle-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-indent: 0;
+  text-align: left;
+}
+
+.footer-top .middle-links .title {
+  font-size: 18px;
+  padding: 22px 0 13px 0;
+  font-weight: 500;
+}
+
+.footer-top .middle-links .search {
+  color: #fff;
+  font-family: "Rubik", "Lucida Grande", sans-serif;
+}
+
+.footer-top .middle-links .navigate {
+  color: #fff;
+  font-family: "Rubik", "Lucida Grande", sans-serif;
+}
+
+.footer-top .middle-links li a {
+  color: #fff;
+}
+
+.footer-top .middle-links .ss-megaphone {
+  color: #fff;
+  font-size: 28px;
+  padding: 19px 0 9px 0;
+  display: block;
+}
+
+.ss-megaphone:before,
+.ss-megaphone.right:after {
+  content: '📢';
+}

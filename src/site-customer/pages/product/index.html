@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../js/lib/slick.css" />
+    <script type="text/javascript" src="../../js/lib/slick.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/site-customer/styles/product.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="/site-customer/styles/product-login-signup.css" /> -->
+
+    <link rel="stylesheet" type="text/css" href="/site-customer/styles/login.css" />
+    <link rel="stylesheet" type="text/css" href="/site-customer/styles/cart.css" />
+    <link rel="stylesheet" type="text/css" href="/site-customer/styles/signup.css" />
+</head>
+
+<body>
+    <div class="product-page">
+        <div class="top-bar smaller_bar">
+            <div class="top-bar-inner">
+                <a href="/" class="awesome-logo">
+                    Free3D
+                </a>
+                <!-- Search -->
+                <div class="nav-search-bar">
+                    <form id="searchForm">
+                        <input type="text" class="search-bar" name="q" placeholder="search 3d models ..."
+                            value="intergalactic spaceship version  blender- eevee">
+
+                        <button class="ss-search" id="search-button2" type="button">
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Links -->
+                <div class="nav-links">
+                    <a href="/" class="nav-link free-search active"><span class="fader">Free
+                            3D Models</span></a>
+                    <a href="/" class="nav-link paid-search "><span class="fader">Premium 3D Models</span></a>
+                </div>
+
+
+                <div class="login-register-group" id="login-signup">
+                    <div class="register login-register">
+
+                        <div class="login-register-button" id="hook-show-register">
+                            Create Free Account
+                        </div>
+                        <div class="dim" id="signup-overlay" hidden style="display: none;">
+
+                            <div class="signup-container">
+                                <div class="signup-promo">
+                                    <div class="title">Create Free Account</div>
+                                    <div class="subtitle">
+                                        Join a vivid community of 3D artists
+                                        <br>
+                                        from around the world. Download free 3D models, engage in the community, share
+                                        your
+                                        works
+                                    </div>
+                                </div>
+                                <div class="signup-form">
+                                    <div class="x-delete" id="close-dim"></div>
+                                    <form id="signup" class="was-validated">
+                                        <div class="regular-signup">
+                                            <div class="alert alert-error" id="signup-failed-user-existed" style="display: none;">
+                                                User
+                                                possibly existed, can't register sorry :(
+                                            </div>
+                                            
+                                            <div class="alert alert-error" id="signup-failed-invalid-email" style="display: none;">
+                                                The email address is not valid!
+                                            </div>
+
+                                            <div class="alert alert-error" id="signup-failed-invalid-password" style="display: none;">
+                                                The password must be 8 - 50 characters long.
+                                            </div>
+
+                                            <p>
+                                                <label for="su_email">Email</label>
+                                                <br>
+                                                <input class="su_input" id="su_email" name="Email" title="email"
+                                                    tabindex="1" type="text" placeholder="" required>
+
+                                            </p>
+                                            <p>
+                                                <label for="su_username">Username</label>
+                                                <br>
+                                                <input class="su_input" id="su_username" name="Username"
+                                                    title="username" tabindex="2" type="text" placeholder="" required>
+                                            </p>
+                                            <p>
+                                                <label for="su_password">Password</label>
+                                                <br>
+                                                <input class="su_input" id="su_password" name="Password"
+                                                    title="password" tabindex="3" type="password" placeholder=""
+                                                    required>
+                                            </p>
+                                            <p class="agree">
+                                                <input id="su_agree" class="agree-check" name="agree" title="agree"
+                                                    value="1" tabindex="8" type="checkbox" placeholder="" required>
+
+                                                <label for="su_agree">I agree with terms of service</label>
+                                            </p>
+                                            <p class="agree">
+                                                <input id="su_subscribe" class="agree-check" name="Subscribe"
+                                                    title="subscribe" value="1" tabindex="8" type="checkbox" checked
+                                                    placeholder="" required>
+
+                                                <label for="su_subscribe">subscribe to receive news email</label>
+                                            </p>
+                                            <p class="agree">
+                                                <button id="hook-signup" class="btn-signup" name="su_submit">
+                                                    Submit
+                                                </button>
+                                            </p>
+                                            <div class="social-login-options">
+                                                <span class="social-login-label">Already have an account ?</span>
+                                                <div class="social-buttons-container">
+                                                    <a class="btn-stock login-page-btn" href="/">Login</a>
+                                                    <div class="social-login-btn google">
+                                                        Google
+                                                    </div>
+                                                    <div class="social-login-btn facebook">
+                                                        Facebook
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="subtitle">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inbetween">
+                        or
+                    </div>
+                    <div class="login login-register">
+                        <div class="login-register-button" id="hook-show-login"> <!-- @click="showLoginModal">-->
+                            Login
+                        </div>
+                        <div class="login-dropdown">
+                            <div hidden id="login-container" v-show="isLoginModalVisible" @close="hideLoginModal">
+                                <div id="login-root">
+                                    <div class="notifier" id="notifier" v-show="isNotifierEnabled"></div>
+
+                                    <div class="login-header">
+                                    </div>
+                                    <div class="login-main">
+                                        <div class="dropdown">
+                                            <div class="triangle"></div>
+
+                                            <form v-on:submit.prevent>
+                                                <div class="alert alert-error m10" id="alert-login-failed"
+                                                    style="display: none;"><strong>Wrong username or password!</strong>
+                                                    Please try again.</div>
+                                                <div class="input-group">
+                                                    <label>Email</label>
+                                                    <br>
+                                                    <input class="login-input text" type="text" id="input-login-email"
+                                                        autocomplete="current-password">
+
+                                                    <br>
+
+                                                    <label>Password</label>
+                                                    <br>
+                                                    <input class="login-input text" type="password"
+                                                        id="input-login-password" autocomplete="current-password"
+                                                        v-model="input_login_password">
+                                                    <br>
+                                                </div>
+                                                <div class="button-group">
+                                                    <div class="login-remember-me">
+                                                        <button type="button" id="hook-submit-login"
+                                                            class="login-input submit-button"
+                                                            v-on:click="submitLogin()">
+                                                            Login
+                                                        </button>
+
+                                                        <div class="remember">
+                                                            <input class="login-input remember-me-checkbox"
+                                                                type="checkbox" checked>
+                                                            <label>Remember me</label>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="other-login">
+                                                        <p>or login with</p>
+                                                        <div class="other-login-button-group">
+                                                            <div class="google-button">
+                                                                <div class="google-icon-wrapper">
+                                                                    <img class="google-icon"
+                                                                        src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                                                                </div>
+                                                                <p class="btn-text"><b>Google</b></p>
+                                                            </div>
+                                                            <div class="facebook-button">
+                                                                <div class="facebook-icon-wrapper">
+                                                                    <img class="facebook-icon"
+                                                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/F_icon_reversed.svg/1024px-F_icon_reversed.svg.png" />
+                                                                </div>
+                                                                <p class="btn-text"><b>Facebook</b></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                            </form>
+
+
+                                            <p class="forgot">
+                                                <a href="reset-password.html">Forgot password ?</a>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                    <div class="login-footer">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="account-hamburger loggedin userStuffs">
+                    <div class="avatar-container" id="avatar-container">
+                        <div class="account_avatar" id="account-avatar">t</div>
+                        <div class="username" id="account-username">
+                            terrordrone4
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="user-panel-container absolute outside_panel_cont" id="user-panel-container"
+                        style="display: none;">
+
+                        <div class="top_triangle_back">
+                            <div class="top_triangle"></div>
+                        </div>
+                        <div class="cleafix" style="clear:both"></div>
+                        <div class="relative">
+                            <div class="panel-menu">
+                                <ul>
+                                    <!--<li><a href="/dashboard/">Dashboard</a></li>-->
+                                    <li><a href="/dashboard/inbox"><span class="ss-mail"></span>Inbox</a></li>
+                                    <li><a href="/dashboard/send-message"><span class="ss-send"></span>Send Message</a>
+                                    </li>
+                                    <!-- <li><a href="/dashboard/bookmarks"><span class="ss-book"></span>Bookmarks</a></li> -->
+                                    <li><a href="/dashboard/downloads"><span
+                                                class="ss-downloadcloud"></span>Downloads</a>
+                                    </li>
+                                    <li><a href="/dashboard/settings"><span class="ss-settings"></span>Settings</a></li>
+                                    <li><a href="/" id="log_out">Log out</a></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="notf-icon notiff_top ss-basket basket_notiff userStuffs" id="shopping-basket">
+
+                    <div class="absolute outside_message_cont" id="shopping-basket-container" style="display:none;">
+                        <div class="top_triangle_back">
+                            <div class="top_triangle"></div>
+                        </div>
+
+                        <div class="relative" style="min-height:100px;">
+                            <div class="top"></div>
+                            <div class="items-container">
+                                <div class="sb-products-wrapper">
+                                    <div class="sb-product-dropdown clearfix cart-item">
+                                        <a href="/">
+                                            <img src="https://preview.free3d.com/img/2016/05/2705008806873531721/re2rg2js.jpg"
+                                                width="75">
+                                        </a>
+                                        <div class="det">
+                                            <a class="title" href="">
+                                                Intergalactic Spaceship Design<span class="light"> 3d model</span>
+                                            </a>
+                                            <div class="auth">
+                                                by
+                                                <a href="">3DHaupt</a>
+                                            </div>
+                                            <div class="price">
+                                                <span class="dollar">$</span>63.0
+                                            </div>
+                                        </div>
+                                        <div class="trash">
+                                            <button type="button" class="ss-trash">
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- other cart items go here -->
+                                </div>
+                                <div class="sb-bottom-dd">
+                                    <div>Total:
+                                        <span class="price" id="cart-item-total-price">
+                                            <span class="dollar">$</span>
+                                            277
+                                        </span>
+                                    </div>
+                                    <a href="/" class="btn-stock filled">
+                                        <span class="ss-cart"></span>
+                                        Check Out →
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <span class="notification-counter " hidden>4</span>
+                    <a href="/shopping-cart" class="mobile-link" hidden>View cart</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="categories-bar free">
+            <div class="categories-bar-inner">
+                <a href="https://free3d.com/3d-models/architecture" class="category-link ss-building  "
+                    alt="free 3D Architecture Models " title="free 3D Architecture Models "><span
+                        class="label">Architecture</span></a>
+                <a href="https://free3d.com/3d-models/vehicles" class="category-link ss-car  "
+                    alt="free 3D Vehicles Models " title="free 3D Vehicles Models "><span
+                        class="label">Vehicles</span></a>
+                <a href="https://free3d.com/3d-models/characters" class="category-link ss-usergroup  "
+                    alt="free 3D Characters Models " title="free 3D Characters Models "><span
+                        class="label">Characters</span></a>
+                <a href="https://free3d.com/3d-models/aircraft" class="category-link ss-plane  "
+                    alt="free 3D Aircraft Models " title="free 3D Aircraft Models "><span
+                        class="label">Aircraft</span></a>
+                <a href="https://free3d.com/3d-models/furniture" class="category-link ss-lodging  "
+                    alt="free 3D Furniture Models " title="free 3D Furniture Models "><span
+                        class="label">Furniture</span></a>
+                <a href="https://free3d.com/3d-models/electronics" class="category-link ss-smartphone  "
+                    alt="free 3D Electronics Models " title="free 3D Electronics Models "><span
+                        class="label">Electronics</span></a>
+                <a href="https://free3d.com/3d-models/animals" class="category-link ss-tropicalfish  "
+                    alt="free 3D Animals Models " title="free 3D Animals Models "><span class="label">Animals</span></a>
+                <a href="https://free3d.com/3d-models/plants" class="category-link ss-leaf  "
+                    alt="free 3D Plants Models " title="free 3D Plants Models "><span class="label">Plants</span></a>
+                <a href="https://free3d.com/3d-models/weapons" class="category-link ss-knife  "
+                    alt="free 3D Weapons Models " title="free 3D Weapons Models "><span class="label">Weapons</span></a>
+                <a href="https://free3d.com/3d-models/sports" class="category-link ss-football  "
+                    alt="free 3D Sports Models " title="free 3D Sports Models "><span class="label">Sports</span></a>
+                <a href="https://free3d.com/3d-models/food" class="category-link ss-icecream  "
+                    alt="free 3D Food Models " title="free 3D Food Models "><span class="label">Food</span></a>
+                <a href="https://free3d.com/3d-models/anatomy" class="category-link ss-anatomicalheart  "
+                    alt="free 3D Anatomy Models " title="free 3D Anatomy Models "><span class="label">Anatomy</span></a>
+                <a href="https://free3d.com/add" class="category-link 
+                    ss-plus" title="Submit Free 3D your model" rel="nofollow"></a>
+            </div>
+
+        </div>
+
+        <div class="product-page-container free-product similar-left has-clearfix">
+            <div class="similar-products-container left  has-clearfix">
+
+                <div id="product-similar-products" class="product-similar-products recommended-products">
+                    <!-- here display multiple search result in the left bar
+                    we need only to clone for now -->
+                    <div class="search-result  premium">
+                        <div class="search-result__content-wrapper">
+
+                            <a href="/" class="search-result__thumb-wrapper">
+                                <img style="max-width: 200px;" class="search-result__thumb"
+                                    src="https://preview.free3d.com/img/2016/05/2705008806873531721/re2rg2js.jpg"
+                                    alt="Intergalactic Spaceship Design 3d model"
+                                    title="Intergalactic Spaceship Design 3d model"
+                                    rel="{&quot;pret&quot;:&quot;$63&quot;,&quot;type&quot;:&quot;.wrl .unitypackage .upk .tgo .stl .obj .fbx .blend&quot;,&quot;standard&quot;:null,&quot;imgd&quot;:&quot;https:\/\/preview.free3d.com\/img\/2016\/05\/2705008806873531721\/re2rg2js.jpg&quot;}">
+                                <div class="standard ">
+                                </div>
+                            </a>
+                            <div class="search-result__info-wrapper">
+                                <div class="search-result__title"><a
+                                        href="/3d-model/intergalactic-spaceship-design-8562.html"
+                                        class="link product-page-link">Intergalactic Spaceship Design</a></div>
+                                <span class="search-result__format">.wrl .unitypackage .upk .tgo .stl .obj .fbx
+                                    .blend</span>
+                                <div class="search-result__footer">
+                                    <span data-price="63" class="search-result__price  product-page-link"><span
+                                            class="dollar">$</span>63 </span>
+                                    <span class="search-result__stats"><span class="stat-item views">0</span></span>
+
+                                </div>
+                            </div>
+
+                            <div class="sec_entry_group"></div>
+                            <a href="/3d-model/intergalactic-spaceship-design-8562.html"
+                                class="product-tools product-tools__premium product-page-link"><span
+                                    class="product-tool product-tool__zoom"></span><!--span class="product-tool product-tool__add-to-cart" data-seo_url="intergalactic-spaceship-design-8562"></span--></a>
+                        </div>
+
+                    </div>
+                    <div class="search-result  premium">
+                        <div class="search-result__content-wrapper">
+
+                            <a href="/3d-model/intergalactic-spaceship-design-8562.html"
+                                class="search-result__thumb-wrapper">
+                                <img style="max-width: 200px;" class="search-result__thumb"
+                                    src="https://preview.free3d.com/img/2016/05/2705008806873531721/re2rg2js.jpg"
+                                    alt="Intergalactic Spaceship Design 3d model"
+                                    title="Intergalactic Spaceship Design 3d model"
+                                    rel="{&quot;pret&quot;:&quot;$63&quot;,&quot;type&quot;:&quot;.wrl .unitypackage .upk .tgo .stl .obj .fbx .blend&quot;,&quot;standard&quot;:null,&quot;imgd&quot;:&quot;https:\/\/preview.free3d.com\/img\/2016\/05\/2705008806873531721\/re2rg2js.jpg&quot;}">
+                                <div class="standard ">
+                                </div>
+                            </a>
+                            <div class="search-result__info-wrapper">
+                                <div class="search-result__title"><a
+                                        href="/3d-model/intergalactic-spaceship-design-8562.html"
+                                        class="link product-page-link">Intergalactic Spaceship Design</a></div>
+                                <span class="search-result__format">.wrl .unitypackage .upk .tgo .stl .obj .fbx
+                                    .blend</span>
+                                <div class="search-result__footer">
+                                    <span data-price="63" class="search-result__price  product-page-link"><span
+                                            class="dollar">$</span>63 </span>
+                                    <span class="search-result__stats"><span class="stat-item views">0</span></span>
+
+                                </div>
+                            </div>
+
+                            <div class="sec_entry_group"></div>
+                            <a href="/3d-model/intergalactic-spaceship-design-8562.html"
+                                class="product-tools product-tools__premium product-page-link"><span
+                                    class="product-tool product-tool__zoom"></span><!--span class="product-tool product-tool__add-to-cart" data-seo_url="intergalactic-spaceship-design-8562"></span--></a>
+                        </div>
+
+                    </div>
+                    <div class="search-result  premium">
+                        <div class="search-result__content-wrapper">
+
+                            <a href="/3d-model/intergalactic-spaceship-design-8562.html"
+                                class="search-result__thumb-wrapper">
+                                <img style="max-width: 200px;" class="search-result__thumb"
+                                    src="https://preview.free3d.com/img/2016/05/2705008806873531721/re2rg2js.jpg"
+                                    alt="Intergalactic Spaceship Design 3d model"
+                                    title="Intergalactic Spaceship Design 3d model"
+                                    rel="{&quot;pret&quot;:&quot;$63&quot;,&quot;type&quot;:&quot;.wrl .unitypackage .upk .tgo .stl .obj .fbx .blend&quot;,&quot;standard&quot;:null,&quot;imgd&quot;:&quot;https:\/\/preview.free3d.com\/img\/2016\/05\/2705008806873531721\/re2rg2js.jpg&quot;}">
+                                <div class="standard ">
+                                </div>
+                            </a>
+                            <div class="search-result__info-wrapper">
+                                <div class="search-result__title"><a
+                                        href="/3d-model/intergalactic-spaceship-design-8562.html"
+                                        class="link product-page-link">Intergalactic Spaceship Design</a></div>
+                                <span class="search-result__format">.wrl .unitypackage .upk .tgo .stl .obj .fbx
+                                    .blend</span>
+                                <div class="search-result__footer">
+                                    <span data-price="63" class="search-result__price  product-page-link"><span
+                                            class="dollar">$</span>63 </span>
+                                    <span class="search-result__stats"><span class="stat-item views">0</span></span>
+
+                                </div>
+                            </div>
+
+                            <div class="sec_entry_group"></div>
+                            <a href="/3d-model/intergalactic-spaceship-design-8562.html"
+                                class="product-tools product-tools__premium product-page-link"><span
+                                    class="product-tool product-tool__zoom"></span><!--span class="product-tool product-tool__add-to-cart" data-seo_url="intergalactic-spaceship-design-8562"></span--></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="product-page-content-wrapper">
+                <div class="product-page-header has-clearfix">
+                    <div class="page-breadcrumb">
+                        <a href="https://free3d.com/3d-models/" class="home-link">3D Models</a>
+                        <span class="current-page-title" id="breadcrumb-product-category">
+                            <a href="https://free3d.com/3d-models/aircraft" class="link-to-category">aircraft</a>
+                        </span>
+                        <!-- next category (if any) goes here -->
+                        <span class="current-page-title" id="breadcrumb-product-title">
+                            Intergalactic Spaceship Version 2 (Blender-2.92 Eevee)
+                        </span>
+                    </div>
+                    <h1 class="product-page-header__title">
+                        <span class="title_text" id="title_text">Intergalactic Spaceship Version 2 (Blender-2.92
+                            Eevee)</span>
+                        <span class="title_extra_info" id="title_extra_info">3D Model</span>
+                    </h1>
+
+                    <!-- Bookmark product -->
+                    <div class="btn-action btn-bookmark-product " title="Bookmark">
+                        <span class="count" id="likes-count">153</span>
+                    </div>
+                </div>
+
+                <div class="product-main-info has-clearfix">
+                    <!-- Product images slides -->
+                    <div class="product-slider-container">
+
+                        <div class="large-image-slider main-product-slider" id="large-slider">
+                            <div class="slide-item">
+                                <img src="">
+                            </div>
+
+                        </div>
+                        <div class="thumbs-image-slider main-product-slider-nav" id="thumb-slider">
+                            <div class="thumb-item">
+                                <img src="">
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- <div class="product-slider-container">
+                        <div class="large-image-slider main-product-slider slick-initialized slick-slider"
+                            id="main-product-slide">
+                            <div class="slick-list draggable">
+                                <div class="slick-track">
+                                    <div class="slide slick-slide slick-current slick-active" data-slick-index="0"
+                                        aria-hidden="false"
+                                        style="width: 610px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+                                        <img  id="bigimg"
+                                            alt="Intergalactic Spaceship Version 2 (Blender-2.92 Eevee) royalty-free 3d model - Preview no. 1"
+                                            width="920"
+                                            src="https://images.free3d.com/imgd/l71/607d7207765f8c39c95ef1f2/5636-intergalactic-spaceships-version-2-blender-292-eevee.jpg"
+                                            data-slide_tmb="https://images.free3d.com/imgd/s71/607d7207765f8c39c95ef1f2/5636-intergalactic-spaceships-version-2-blender-292-eevee.jpg"
+                                            data-slide_bigimg="https://images.free3d.com/imgd/raw71/607d7207765f8c39c95ef1f2/5636-intergalactic-spaceships-version-2-blender-292-eevee.jpg"
+                                            class="large-image">
+                                    </div>
+                                    <div class="slide slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1"
+                                        style="width: 610px; position: relative; left: -610px; top: 0px; z-index: 998; opacity: 0;">
+                                        <img alt="Intergalactic Spaceship Version 2 (Blender-2.92 Eevee) royalty-free 3d model - Preview no. 2"
+                                            width="920"
+                                            src="https://images.free3d.com/imgd/l2/607d7207765f8c39c95ef1f2/1183-intergalactic-spaceships-version-2-blender-292-eevee.jpg"
+                                            data-slide_tmb="https://images.free3d.com/imgd/s2/607d7207765f8c39c95ef1f2/1183-intergalactic-spaceships-version-2-blender-292-eevee.jpg"
+                                            data-slide_bigimg="https://images.free3d.com/imgd/raw2/607d7207765f8c39c95ef1f2/1183-intergalactic-spaceships-version-2-blender-292-eevee.jpg"
+                                            class="large-image">
+                                    </div>
+                                    <div class="slide slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1"
+                                        style="width: 610px; position: relative; left: -1220px; top: 0px; z-index: 998; opacity: 0;">
+                                        <img alt="Intergalactic Spaceship Version 2 (Blender-2.92 Eevee) royalty-free 3d model - Preview no. 3"
+                                            width="920"
+                                            src="https://images.free3d.com/imgd/l99/607d7207765f8c39c95ef1f2/5710-intergalactic-spaceships-version-2-blender-292-eevee.jpg"
+                                            data-slide_tmb="https://images.free3d.com/imgd/s99/607d7207765f8c39c95ef1f2/5710-intergalactic-spaceships-version-2-blender-292-eevee.jpg"
+                                            data-slide_bigimg="https://images.free3d.com/imgd/raw99/607d7207765f8c39c95ef1f2/5710-intergalactic-spaceships-version-2-blender-292-eevee.jpg"
+                                            class="large-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="thumbs-image-slider main-product-slider-nav slick-initialized slick-slider slick-vertical"
+                            id="main-product-slider-nav">
+                            <button class="slick-prev slick-arrow" aria-label="Previous" type="button"
+                                style="display: block;">Previous</button>
+
+                            <div class="slick-list draggable">
+                                 wrong copying
+                                <div class="slick-slide">
+                                    <div class="slide slick-slide slick-cloned slide-source" data-slick-index="-4" aria-hidden="true"
+                                        tabindex="-1">
+                                        <img alt="Intergalactic Spaceship Version 2 (Blender-2.92 Eevee) royalty-free 3d model - Preview no. 39"
+                                            width="920"
+                                            src="https://images.free3d.com/imgd/l11/607d7207765f8c39c95ef1f2/1439-intergalactic-spaceships-version-2-blender-292-eevee.jpg">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="slick-next slick-arrow" aria-label="Next" type="button"
+                                style="display: block;">Next</button>
+                        </div>
+                    </div> -->
+
+                    <!-- Product infos as texts -->
+                    <div class="product-main-details">
+                        <div class="product-main-details__action-container">
+                            <div class=" product-action-bar product-main-details__action-bar">
+                                <div class="single-product-price-container">
+                                    <div class="single-product-price-container__digits" id="price">0</div>
+                                    <div class="single-product-price-container__decimals">00</div>
+                                </div>
+                                <div class="action-buttons-container">
+                                    <!----- Add to Basket ------>
+                                    <button rel="nofollow" id="download-prod" class="btn-action">Download</button>
+                                </div>
+                            </div>
+
+
+                            <div class="product-license-container product-main-details__license-container ">
+                                <div class="product-main-details__product-license">
+                                    <div class="product-license__content"><span class="license-text">Personal Use
+                                            License</span></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="product-main-details__meta-container product-meta-container">
+
+                            <div class="product-meta-public">
+                                <!--- Stats -->
+                                <div class="product-stats-container">
+
+                                    <div class="product-stats__block product-stats__public product-counters">
+                                        <div class="product-stat-item stats-item stats-view left">
+                                            <span class="product-stat-item__content stat_content">
+                                                <span class="product-stat-item__value stat_value"
+                                                    id="visit-count">0</span>
+                                                <span class="product-stat-item__label stat_label">visits</span>
+                                            </span>
+                                        </div>
+                                        <div class="product-stat-item stats-item stats-analytics right">
+                                            <span class="product-stat-item__content stat_content">
+                                                <span class="product-stat-item__value stat_value"
+                                                    id="download-count">0</span>
+                                                <span class="product-stat-item__label stat_label">downloads</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Author -->
+                                <div class="author-container">
+                                    <a class="avatar" href="https://free3d.com/user/3dhaupt">
+                                        <img src="/">
+                                    </a>
+                                    <div class="username-container">
+                                        <span class="submitted-by">Submitted by</span>
+                                        <a rel="nofollow" href="https://free3d.com/user/3dhaupt" class="username"
+                                            id="author-username">3dhaupt</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-additional-details">
+                    <div class="product-page-box product-specifications">
+                        <!-- Product Specifications -->
+                        <h3 class="product-page-box-title product-page-box-title__specifications">Specifications
+                        </h3>
+                        <ul class="product-specs-list">
+                            <li class="product-spec odd"><span class="spec-label">Geometry</span><span
+                                    class="spec-value " id="geometry">- Geometrie -</span></li>
+                            <li class="product-spec even"><span class="spec-label">Polygons</span><span
+                                    class="spec-value " id="polygon_count">27,560</span></li>
+                            <li class="product-spec odd"><span class="spec-label">Vertices</span><span
+                                    class="spec-value " id="vertices_count">13,760</span></li>
+                            <li class="product-spec even"><span class="spec-label">Textures</span><span
+                                    class="spec-value yes" id="has_textures">Yes</span></li>
+                            <li class="product-spec odd"><span class="spec-label">Materials</span><span
+                                    class="spec-value yes" id="has_material">Yes</span></li>
+                            <li class="product-spec even"><span class="spec-label">Rigged</span><span
+                                    class="spec-value no" id="had_rigged">No</span></li>
+                            <li class="product-spec odd"><span class="spec-label">Animated</span><span
+                                    class="spec-value yes" id="had_animated">Yes</span></li>
+                            <li class="product-spec even"><span class="spec-label">3D Printable Ready</span><span
+                                    class="spec-value no">No</span></li>
+                            <li class="product-spec odd"><span class="spec-label">Game Ready (low poly)</span><span
+                                    class="spec-value yes" id="is_gameReady">Yes</span></li>
+                            <li class="product-spec even"><span class="spec-label">UV Mapped</span><span
+                                    class="spec-value yes" id="had_UVMapped">Yes</span></li>
+                            <li class="product-spec odd"><span class="spec-label">Unwrapped UVs</span><span
+                                    class="spec-value ">- Unverpackte UVs -</span></li>
+                        </ul>
+                    </div>
+                    <div class="product-files-tags">
+                        <!--- Files available -->
+                        <div class="product-page-box product-files-container">
+                            <h3 class="product-page-box-title product-page-box-title__formats">Formats &amp; Files
+                            </h3>
+                            <div class="product-file-info">
+                                <div class="file-header">
+                                    <div class="file-formats-expanded" id="file-formats-expanded">Blender</div>
+                                    <div class="file-formats" id="file-formats"> (.blend)</div>
+                                    <span class="file-size">16.08 MB</span>
+                                </div><br>
+                                <div class="file-software"></div>
+                                <span class="file-renderer">Standard </span>
+                                <div class="file-name" id="file-name">
+                                    blender-2.92-baked-animations-intergalactic_spaceships_version_2.zip</div>
+                            </div>
+                        </div>
+                        <!--- Tags -->
+                        <div class="product-page-box product-tags-container">
+                            <h3 class="product-page-box-title product-page-box-title__tags">Tags</h3>
+                            <div class="tags-wrapper">
+                                <a class="indiv-tag" id="indiv-tag" href="/">intergalactic</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <!-- Product Description -->
+                        <div class="description-container">
+                            <h3 class="product-page-box-title product-page-box-title__description">Description</h3>
+                            <div class="product-description__text desc_english" id="desc_text">
+                                Intergalactic spaceship version 2 for a project.<br><span>Demo-Video <a target="_blank"
+                                        rel="nofollow" href="https://www.youtube.com/watch?v=T8OJLJENlcQ"
+                                        title="Link: https://www.youtube.com/watch?v=T8OJLJENlcQ">https://www.youtube.com/watch?v=T8OJLJENlcQ</a><br></span><span><br>
+
+                                </span><span>
+                                    <ul>
+                                        <li>Name - Intergalactic_Spaceships_Version_2 </li>
+                                        <li>Dimensions - 5.978m x 3.098m x 8.497m</li>
+                                        <li>Vertices = 13760</li>
+                                        <li>Edges = 41340</li>
+                                        <li>Polygons = 27560</li>
+                                    </ul><br>
+
+                                    3D model formats:
+
+                                    <ul>
+                                        <li>
+                                            Native format (*.blend)</li>
+                                        <li>Autodesk FBX (.fbx)</li>
+                                        <li>OBJ (.obj, .mtl)</li>
+                                        <li>glTF (.gltf, .glb)</li>
+                                        <li>X3D (.x3d)</li>
+                                        <li>Collada (.dae)</li>
+                                        <li>Stereolithography (.stl)</li>
+                                        <li>Polygon File Format (.ply)</li>
+                                        <li>Alembic (.abc)</li>
+                                        <li>DXF (.dxf)</li>
+                                    </ul>
+                                </span>
+                                <ul>
+                                    <li>Version 1 <a target="_blank" rel="nofollow"
+                                            href="https://free3d.com/3d-model/intergalactic-spaceship-in-blender-28-eevee-394046.html">https://free3d.com/3d-model/intergalactic-spaceship-in-blender-28-eevee-394046.html</a>
+                                    </li>
+                                </ul><br><span><br>You can use my 3d-model only for non-commercial, personal/private
+                                    and
+                                    editorial use!<br><span><br>Made by Dennis Haupt aka 3DHaupt<br><br><a
+                                            target="_blank" rel="nofollow"
+                                            href="https://3dhaupt.com">3DHaupt.com</a><br><br><br></span>---<br><br>My
+                                    name is Dennis Haupt.<br>&nbsp;<br>3D-artist for modeling, texturing, rigging
+                                    and
+                                    animation since 2008.&nbsp;<br><br>My favorite software is Blender 3d but&nbsp;I
+                                    also work with 3d-Coat or other
+                                    3d/2d-programs.&ZeroWidthSpace;&ZeroWidthSpace;<br><br>Location: Germany -
+                                    Thuringia
+                                    - Ilmenau<br><br>---<br><br>System:<br>Alienware 18:&nbsp;Intel(R) Core(TM)
+                                    i7-4930MX CPU @ 3.00GHz&nbsp;NVIDIA GeForce GTX 780M x2 (SLI)&nbsp;32,0 GB
+                                    RAM<br><br>---</span><br><br><br><br><br>
+                            </div>
+
+                        </div>
+                        <div class="product-stats__public product-stats__block product-dates">
+                            <div class="product-stat-item stats-item stats-calendar right">
+                                <span class="product-stat-item__content">
+                                    <span class="product-stat-item__value stat_value" id="date_added">Apr 19,
+                                        2021</span>
+                                    <span class="product-stat-item__label stat_label">date added</span>
+                                </span>
+                            </div>
+                            <div class="product-stat-item stats-item stats-last-update right">
+                                <span class="product-stat-item__content">
+                                    <span class="product-stat-item__value stat_value" id="date_updated">Apr 28,
+                                        2021</span>
+                                    <span class="product-stat-item__label stat_label">last update</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-page-section product-page-section--comments">
+                    <!-- start comment -->
+                    <h2 class="product-page-section__title">Comments</h2>
+                    <div class="product-comments__container">
+                        <!-- Verific daca este autentificat -->
+                        <div class="alert">To post your comment you'll have to <span
+                                class="comments-login-button btn-stock">Login</span></div>
+                        <div class="product-comment__section product-comment__comments-list">
+                            <div class="product-comment__item  63c4642f0b73753d9c03077e"
+                                data-parent_id="63c4642f0b73753d9c03077e">
+                                <div>
+                                    <a class="product-comment__avatar" href="/user/haremcinema" title="haremcinema">
+                                        <img class="product-comment__avatar-thumb" src="">
+                                    </a>
+                                </div>
+                                <div class="product-comment--body">
+                                    <div class="product-comment__content-container">
+                                        <div class="product-comment__content">
+                                            Thanks for sharing this.
+                                        </div>
+                                        <div class="product-comment__meta">
+                                            <a href="/user/haremcinema">haremcinema</a>
+                                            <span class="product-comment__creation-data">7 months ago</span>
+                                            <span class="product-comment__add-reply" title="haremcinema"
+                                                data-reply_id="63c4642f0b73753d9c03077e">Reply2</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-comment__item  61c91c8a49fc2c06a17cf4d2"
+                                data-parent_id="61c91c8a49fc2c06a17cf4d2">
+                                <div>
+                                    <a class="product-comment__avatar" href="/user/ricarious" title="ricarious">
+                                        <img class="product-comment__avatar-thumb" src="">
+                                    </a>
+                                </div>
+                                <div class="product-comment--body">
+                                    <div class="product-comment__content-container">
+                                        <div class="product-comment__content">
+                                            Where are the textures?
+                                        </div>
+                                        <div class="product-comment__meta">
+                                            <a href="/user/ricarious">ricarious</a>
+                                            <span class="product-comment__creation-data">2 years ago</span>
+                                            <span class="product-comment__add-reply" title="ricarious"
+                                                data-reply_id="61c91c8a49fc2c06a17cf4d2">Reply2</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-comment__item reply 61c91c8a49fc2c06a17cf4d2"
+                                data-parent_id="61c91c8a49fc2c06a17cf4d2">
+                                <div>
+                                    <a class="product-comment__avatar" href="/user/3dhaupt" title="3dhaupt">
+                                        <img class="product-comment__avatar-thumb" src="/">
+                                    </a>
+                                </div>
+                                <div class="product-comment--body">
+                                    <div class="product-comment__content-container">
+                                        <div class="product-comment__content">
+                                            Thank ^^ ! The textures are packed in Blender! You have to unpack the
+                                            textures if you want to use them for other formats (Collada, DXF, FBX, OBJ)
+                                        </div>
+                                        <div class="product-comment__meta">
+                                            <a href="/user/3dhaupt">3dhaupt</a>
+                                            <span class="product-comment__creation-data">2 years ago</span>
+                                            <span class="product-comment__add-reply" title="3dhaupt"
+                                                data-reply_id="61c91c8a49fc2c06a17cf4d2">Reply2</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-comment__item reply 61c91c8a49fc2c06a17cf4d2"
+                                data-parent_id="61c91c8a49fc2c06a17cf4d2">
+                                <div>
+                                    <a class="product-comment__avatar" href="/user/ricarious" title="ricarious">
+                                        <img class="product-comment__avatar-thumb" src="/">
+                                    </a>
+                                </div>
+                                <div class="product-comment--body">
+                                    <div class="product-comment__content-container">
+                                        <div class="product-comment__content">
+                                            For Collada, DXF, FBX, , OBJ, STL download...
+
+                                            Very nice model, btw.
+                                        </div>
+                                        <div class="product-comment__meta">
+                                            <a href="/user/ricarious">ricarious</a>
+                                            <span class="product-comment__creation-data">2 years ago</span>
+                                            <span class="product-comment__add-reply" title="ricarious"
+                                                data-reply_id="61c91c8a49fc2c06a17cf4d2">Reply2</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-comment__item  619951e736eafc7ebf49a872"
+                                data-parent_id="619951e736eafc7ebf49a872">
+                                <div>
+                                    <a class="product-comment__avatar" href="/user/fzzfahad31" title="fzzfahad31">
+                                        <img class="product-comment__avatar-thumb" src="">
+                                    </a>
+                                </div>
+                                <div class="product-comment--body">
+                                    <div class="product-comment__content-container">
+                                        <div class="product-comment__content">
+                                            I hope you go to heaven my guy. this is perfect
+                                        </div>
+                                        <div class="product-comment__meta">
+                                            <a href="/user/fzzfahad31">fzzfahad31</a>
+                                            <span class="product-comment__creation-data">2 years ago</span>
+                                            <span class="product-comment__add-reply" title="fzzfahad31"
+                                                data-reply_id="619951e736eafc7ebf49a872">Reply2</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-comment__item reply 619951e736eafc7ebf49a872"
+                                data-parent_id="619951e736eafc7ebf49a872">
+                                <div>
+                                    <a class="product-comment__avatar" href="/user/3dhaupt" title="3dhaupt">
+                                        <img class="product-comment__avatar-thumb" src="/">
+                                    </a>
+                                </div>
+                                <div class="product-comment--body">
+                                    <div class="product-comment__content-container">
+                                        <div class="product-comment__content">
+                                            lol
+                                        </div>
+                                        <div class="product-comment__meta">
+                                            <a href="/user/3dhaupt">3dhaupt</a>
+                                            <span class="product-comment__creation-data">2 years ago</span>
+                                            <span class="product-comment__add-reply" title="3dhaupt"
+                                                data-reply_id="619951e736eafc7ebf49a872">Reply2</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-comment__item  6172dbfe1e57814a16763012"
+                                data-parent_id="6172dbfe1e57814a16763012">
+                                <div>
+                                    <a class="product-comment__avatar" href="/user/gh0ztdragon223"
+                                        title="gh0ztdragon223">
+                                        <img class="product-comment__avatar-thumb" src="">
+                                    </a>
+                                </div>
+                                <div class="product-comment--body">
+                                    <div class="product-comment__content-container">
+                                        <div class="product-comment__content">
+                                            fire
+
+                                        </div>
+                                        <div class="product-comment__meta">
+                                            <a href="/user/gh0ztdragon223">gh0ztdragon223</a>
+                                            <span class="product-comment__creation-data">2 years ago</span>
+                                            <span class="product-comment__add-reply" title="gh0ztdragon223"
+                                                data-reply_id="6172dbfe1e57814a16763012">Reply2</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-comment__item reply 6172dbfe1e57814a16763012"
+                                data-parent_id="6172dbfe1e57814a16763012">
+                                <div>
+                                    <a class="product-comment__avatar" href="/user/fzzfahad31" title="fzzfahad31">
+                                        <img class="product-comment__avatar-thumb" src="">
+                                    </a>
+                                </div>
+                                <div class="product-comment--body">
+                                    <div class="product-comment__content-container">
+                                        <div class="product-comment__content">
+                                            ikr
+
+                                        </div>
+                                        <div class="product-comment__meta">
+                                            <a href="/user/fzzfahad31">fzzfahad31</a>
+                                            <span class="product-comment__creation-data">2 years ago</span>
+                                            <span class="product-comment__add-reply" title="fzzfahad31"
+                                                data-reply_id="6172dbfe1e57814a16763012">Reply2</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end comment-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script src="https://blueimp.github.io/JavaScript-MD5/js/md5.js"></script>
+<script src="../../js/lib/moment.min.js"></script>
+
+
+
+<script src="../../js/constants.js"></script>
+<script src="../../js/utils.js"></script>
+<script src="../../js/FakeData.js"></script>
+<script src="../../js/setup.js"></script>
+<script src="../../js/userauth.js"></script>
+<script src="../../js/cart.js"></script>
+<script src="../../js/product-detail.js"></script>
+<script src="../../js/login.js"></script>
+<script src="../../js/signup.js"></script>
+
+</html>
